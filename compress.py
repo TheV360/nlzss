@@ -185,7 +185,7 @@ def compress(input, out):
     # padding
     padding = 4 - (length % 4 or 4)
     if padding:
-        out.write(b'\xff' * padding)
+        out.write(b'\x00' * padding)
 
 def compress_nlz11(input, out):
     # header
@@ -233,7 +233,7 @@ def compress_nlz11(input, out):
     # padding
     padding = 4 - (length % 4 or 4)
     if padding:
-        out.write(b'\xff' * padding)
+        out.write(b'\x00' * padding)
 
 def dump_compress_nlz11(input, out):
     # body
